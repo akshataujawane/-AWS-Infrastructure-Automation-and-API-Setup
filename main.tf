@@ -49,7 +49,7 @@ resource "aws_iam_role" "ec2_role" {
 }
 
 resource "aws_iam_policy" "s3_access_policy" {
-  name = "ec2-s3-access-policy"
+  name = "ec2-s3-access-policy-unique"
 
   policy = jsonencode({
     Version = "2012-10-17",
@@ -71,7 +71,7 @@ resource "aws_iam_role_policy_attachment" "attach_s3_policy" {
 
 # EC2 Instance
 resource "aws_instance" "http_service" {
-  ami           = "ami-053b12d3152c0cc71" # Amazon Linux 2 AMI
+  ami           = "ami-0fd05997b4dff7aac" # Amazon Linux 2 AMI
   instance_type = "t2.micro"
   key_name      = "terraform" # Replace with your key pair
 
